@@ -12,10 +12,25 @@ public class WordScramble {
    *  - two consecutive letters consisting of "A" followed by a letter that was not "A" were swapped
    *  - letters were swapped at most once
    */
+  public static void main(String[] args) {
+    System.out.println(scrambleWord("AARDVARK"));
+  }
   public static String scrambleWord(String word) {
       /* to be implemented in part (a) */
-      return "";
+      String temp1 = "";
+      String temp2 = "";
+      String print = word;
+      for(int i = 0; i < print.length()-1; i++){
+        temp1 = print.substring(i,i+1);
+        temp2 = print.substring(i+1, i+2);
+        if(temp1.equals("A")&&!temp2.equals(temp1)){
+          print = print.substring(0, i) + temp2 + temp1 + print.substring(i+2);
+          i++;
+        }
+      }
+      return print;
   }
+
 
   /** Modifies wordList by replacing each word with its scrambled
    *  version, removing any words that are unchanged as a result of scrambling.
@@ -31,6 +46,14 @@ public class WordScramble {
    */
   public static ArrayList<String> scrambleOrRemove(ArrayList<String> wordList) {
       /* to be implemented in part (b) */
-      return new ArrayList<String>();
+      String word = "";
+      ArrayList<String> newList = new ArrayList<String>();
+      for(int i = 0; i < wordList.size(); i++){
+        word = scrambleWord(wordList.get(i));
+        if(word!=wordList.get(i)){
+          newList.add(word);
+        }
+      }
+      return newList;
   }
 }

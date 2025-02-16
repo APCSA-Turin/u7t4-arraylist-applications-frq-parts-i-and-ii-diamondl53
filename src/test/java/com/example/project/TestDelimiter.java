@@ -39,12 +39,12 @@ public class TestDelimiter {
         ArrayList<String> delList1 = delimitersEx3.getDelimitersList(tokens3);
         boolean res1 = delimitersEx3.isBalanced(delList1);
         assertEquals(res1,true);
-
+        
         String[] tokens4 = {"<sup>", "</sup>", "</sup>", "<sup>"};
         ArrayList<String> delList2 = delimitersEx3.getDelimitersList(tokens4);
         boolean res2 = delimitersEx3.isBalanced(delList2);
         assertEquals(res2,false);
-
+        
         String[] tokens5 = {"</sup>"};
         ArrayList<String> delList3 = delimitersEx3.getDelimitersList(tokens5);
         boolean res3 = delimitersEx3.isBalanced(delList3);
